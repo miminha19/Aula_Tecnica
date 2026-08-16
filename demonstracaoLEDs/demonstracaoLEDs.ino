@@ -1,12 +1,7 @@
-#include <micro_ros_arduino.h>
 #include <rcl/rcl.h>
 #include <rclc/rclc.h>
 #include <rclc/executor.h>
 #include <std_msgs/msg/bool.h>
-
-char ssid[] = "wIFFadministrativa";
-char password[] = "pOLO@2016";
-char agent_ip[] = "10.80.4.168";
 
 rcl_allocator_t allocator;
 rclc_support_t support;
@@ -34,8 +29,6 @@ std_msgs__msg__Bool msg_led4;
 //========================
 // Callback
 //========================
-
-
 void callback_led1(const void * msgin)
 {
     const std_msgs__msg__Bool * msg =
@@ -65,26 +58,13 @@ void callback_led4(const void * msgin)
     digitalWrite(LED4, msg->data);
 }
 
-
-
-
 //========================
 // Setup
 //========================
-
-
 void setup()
 {
     Serial.begin(115200);
    
-    set_microros_wifi_transports(
-        ssid,
-        password,
-        agent_ip,
-        8888
-    );
-    delay(2000);
-
     pinMode(LED1, OUTPUT);
     pinMode(LED2, OUTPUT);
     pinMode(LED3, OUTPUT);
