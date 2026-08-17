@@ -6,7 +6,7 @@ from std_msgs.msg import Bool
 
 from std_msgs.msg import Int32
 
-class SensorLed(Node):
+class classe(Node):
 
     def __init__(self):
         super().__init__("nó")
@@ -22,7 +22,7 @@ def main(args=None):
 
     rclpy.init(args=args) #inicializa o ROS2
 
-    node = SensorLed() #atribui a classe criada ao nó
+    node = classe() #atribui a classe criada ao nó
 
     rclpy.spin(node) #cria como um looping de execução esperando eventos
 
