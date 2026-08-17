@@ -16,11 +16,7 @@ class SensorLed(Node):
        
         # Variáveis
       
-        # Timer
-      
     def callback(self, msg):
-        
-    def timer_callback(self):
    
 def main(args=None):
 
