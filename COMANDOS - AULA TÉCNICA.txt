@@ -1,0 +1,44 @@
+comandos - AULA TÉCNICA
+
+1. Source para carregar arquivos de microros e ros2
+- source /opt/ros/jazzy/setup.bash
+- source /home/bolsista/microros_ws/install/setup.bash
+
+2. Criar workspace 
+- mkdir -p ~/ros2_ws/src
+- cd ~/ros2_ws
+
+3. Primeira compilação
+- colcon build
+
+4. Adicionar ao .bashrc
+- echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+- source ~/.bashrc
+
+5. Criar pacote
+- ros2 pkg create meu_primeiro_no --build-type ament_python --dependencies rclpy std_msgs
+
+6. Criar arquivo.py do nó
+- touch nome do nó.py
+- nano nome do nó.py
+
+7. Criar um caminho para o executável do arquivo py que fizemos:
+ex:
+entry_points={
+    'console_scripts': [
+        'aciona_led = meu_primeiro_no.aciona_led:main',
+    ],
+},
+
+
+8. Compilar e Atualizar ambiente 
+- colcon build
+- source install/setup.bash
+
+9. Executar
+- ros2 run nome arquivo nome_no
+
+10. Para configurar o micro-ros no raspberry:
+- WIFI: ros2 run micro_ros_agent micro_ros_agent udp4 --port 8888
+- SERIAL: ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0 -b 115200
+
